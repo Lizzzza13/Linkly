@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-white border-bottom px-3 px-lg-5 fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center gap-2 me-3" href="/">
+            <img src="/static/images/logo.png" alt="Logo" width="32" height="32">
+            <span class="fw-bold fs-5">LINKLY</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav d-flex align-items-center gap-2 ms-lg-auto text-center text-lg-end">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-light dropdown-toggle rounded-pill w-100 w-lg-auto" href="#" role="button"
+                       data-bs-toggle="dropdown">
+                        <img src="/static/images/{{ current_user.img or 'default.png' }}" alt="Profile"
+                             class="rounded-circle"
+                             width="32" height="32" style="object-fit: cover;">
+                        <span>{{ current_user.username }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown">
+                        {% if current_user.role != 'Admin' %}
+                        <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-gear me-2"></i> Settings</a>
+                        </li>
+                        {% endif %}
+                        {% if current_user.role == 'Admin' %}
+                        <li><a class="dropdown-item" href="/admin/users"><i class="fa-solid fa-users me-2"></i> Manage
+                            Users</a></li>
+                        {% endif%}
+                        <li><a class="dropdown-item text-danger" href="/logout"><i
+                                class="fa-solid fa-arrow-right-from-bracket me-2"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="/login" class="btn btn-outline-dark rounded-pill w-100 w-lg-auto">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="btn rounded-pill w-100 w-lg-auto"
+                       style="background: linear-gradient(135deg, #000000, #4f4f4f, #000000); color: white; border: none; font-weight: 300; padding: 10px 25px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);transition: all 0.3s ease-in-out;">
+                        Try it Free
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

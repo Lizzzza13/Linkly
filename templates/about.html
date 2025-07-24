@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+History of LINKLY
+{% endblock %}
+
+
+{% block container %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-4">
+            <div id="list-example" class="list-group">
+                <a class="list-group-item list-group-item-action" href="#1">Our Mission & Values</a>
+                <a class="list-group-item list-group-item-action" href="#2">Terms of Service</a>
+                <a class="list-group-item list-group-item-action" href="#3">Privacy Policy</a>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                 class="scrollspy-example" tabindex="0">
+                <h4 id="1" style="text-decoration: underline;">Our Mission & Values</h4>
+                <h6 class="mb-3">Our Mission</h6>
+                At <img src="/static/images/logo.png" alt="Logo" width="20" height="20"
+                        class="d-inline-block align-text-top ms-2 me-1">
+                <a href="/" class="text-decoration-none text-dark"><strong>LINKLY</strong></a>, we’re not just
+                shortening URLs; we’re enhancing the way people interact with links. We aim to make sharing content
+                more user-friendly, organized, and insightful. Whether you're a blogger, marketer, developer, or
+                casual user, <img src="/static/images/logo.png" alt="Logo" width="20" height="20"
+                                  class="d-inline-block align-text-top ms-2 me-1">
+                <a href="/" class="text-decoration-none text-dark"><strong>LINKLY</strong></a> provides a seamless
+                experience for shortening and tracking links, while always focusing on security, performance, and
+                simplicity.
+                <h6 class="mb-3">The Future</h6>
+                We're constantly evolving and listening to the needs of our users. The future of <img
+                    src="/static/images/logo.png" alt="Logo" width="20" height="20"
+                    class="d-inline-block align-text-top ms-2 me-1">
+                <a href="/" class="text-decoration-none text-dark"><strong>LINKLY</strong></a> is all about
+                expanding our features, enhancing user experience, and continuing to innovate in the space of link
+                management. From adding new analytics features to exploring advanced security options, <img
+                    src="/static/images/logo.png" alt="Logo" width="20" height="20"
+                    class="d-inline-block align-text-top ms-2 me-1">
+                <a href="/" class="text-decoration-none text-dark"><strong>LINKLY</strong></a> aims to remain a
+                go-to tool for efficient link management.
+                <h6 class="mb-3">Our Values</h6>
+                <ul class="list-unstyled">
+                    <li><strong><i class="fa-solid fa-check"></i> Simplicity:</strong> Keeping things simple for
+                        everyone.
+                    </li>
+                    <li><strong><i class="fa-solid fa-check"></i> Innovation:</strong> Continuously improving and
+                        offering new features.
+                    </li>
+                    <li><strong><i class="fa-solid fa-check"></i> Security:</strong> Protecting your data and ensuring
+                        safe link sharing.
+                    </li>
+                    <li><strong><i class="fa-solid fa-check"></i> User-Centric:</strong> Our users come first; we build
+                        for them.
+                    </li>
+                </ul>
+
+                <h4 id="2" style="text-decoration: underline;">Terms of Service</h4>
+                <ul>
+                    <li>By using LINKLY’s URL shortening services, you agree to comply with all applicable laws and
+                        these Terms of Service.
+                    </li>
+                    <li>LINKLY reserves the right to suspend or terminate accounts that misuse the service or violate
+                        these terms without prior notice.
+                    </li>
+                    <li>Users are responsible for the content of the links they shorten and must not use LINKLY for
+                        illegal, harmful, or abusive purposes.
+                    </li>
+                    <li>LINKLY does not guarantee the uptime or availability of the service and is not liable for any
+                        damages resulting from service interruptions.
+                    </li>
+                    <li>LINKLY may update these Terms of Service at any time; continued use of the service constitutes
+                        acceptance of any changes.
+                    </li>
+                </ul>
+
+                <h4 id="3" style="text-decoration: underline;">Privacy Policy</h4>
+                <ul>
+                    <li>LINKLY values your privacy and is committed to protecting your personal information in
+                        accordance with applicable data protection laws.
+                    </li>
+                    <li>We collect only the minimum information necessary to provide and improve our URL shortening
+                        services, such as your email address and usage data.
+                    </li>
+                    <li>LINKLY does not sell or share your personal data with third parties except as required by law or
+                        to provide essential service features.
+                    </li>
+                    <li>Your shortened links and usage statistics may be stored to help enhance our service, but we do
+                        not use this information for targeted advertising.
+                    </li>
+                    <li>You have the right to access, modify, or delete your personal information stored by LINKLY by
+                        contacting our support team.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

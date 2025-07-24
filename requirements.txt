@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Login
+email_validator
+gunicornblinker==1.9.0

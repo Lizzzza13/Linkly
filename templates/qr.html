@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+QR Code
+{% endblock %}
+
+{% block container %}
+<div class="qr-container"
+     style="background: linear-gradient(135deg, #000000, #4f4f4f); color: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); max-width: 500px; margin: 100px auto; text-align: center;">
+    <h2 class="mb-4">QR Code</h2>
+    <img id="qr-image" src="data:image/png;base64,{{ qr_code }}" style="width: 300px; height: 300px;">
+    <p class="short-link mt-4">
+        <a href="{{ short_url }}" class="text-info" target="_blank">{{ short_url }}</a>
+    </p>
+    <a href="{{ url_for('index') }}" class="btn btn-outline-light mt-3 me-2"><i class="fa fa-arrow-left"></i> Back</a>
+    <a id="download-btn" class="btn btn-primary mt-3" download="qr_code.png"><i class="fa-solid fa-download"></i> Save
+        QR Code</a>
+</div>
+
+<script>
+    // JavaScript to handle download
+    const qrImage = document.getElementById('qr-image');
+    const downloadBtn = document.getElementById('download-btn');
+
+    downloadBtn.href = qrImage.src;
+</script>
+{% endblock %}

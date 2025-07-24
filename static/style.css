@@ -1,0 +1,17 @@
+body::before{
+display: block;
+content: '';
+height: 60px;
+}
+
+main {
+  padding-bottom: 60px;
+}
+
+.scrollspy-example {
+  position: relative;
+  height: 600px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 1rem;
+}

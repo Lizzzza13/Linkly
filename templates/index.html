@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}
+Main
+{% endblock %}
+{% block container %}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h4 class="fw-bold display-4"><i class="fa-solid fa-link"></i> Linkly</h4>
+        <p class="text-muted">Paste your URL below to create a short link.</p>
+    </div>
+    <form method="POST" class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="input-group mb-4">
+                <input type="url" name="original_url" class="form-control rounded-start-pill px-4 py-2"
+                       placeholder="https://example.com/your/long/url" required>
+                <button class="btn btn-dark rounded-end-pill px-4 py-2" type="submit">
+                    <i class="fa-solid fa-scissors me-2"></i> Shorten
+                </button>
+            </div>
+        </div>
+    </form>
+
+    {% if short_url %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8 col-lg-6">
+            <div class="d-flex justify-content-between align-items-center border rounded-pill p-3 bg-white shadow-sm">
+                <a href="{{ short_url }}" class="text-decoration-none text-primary">
+                    {{ short_url }}
+                </a>
+                <div>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('generate_qr', short_code=short_url.split('/')[-1]) }}"
+                       class="btn btn-outline-info btn-sm rounded-pill" title="QR Code">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </a>
+                    {% endif %}
+                    <button onclick="copyToClipboard('{{ short_url }}')"
+                            class="btn btn-outline-dark btn-sm rounded-pill me-2" title="Copy">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if not current_user.is_authenticated %}
+    <div class="card text-center shadow-sm" style="max-width: 350px; margin: auto; margin-top: 40px;">
+        <div class="card-body">
+            <h5 class="card-title fw-bold">Register Now</h5>
+            <p class="card-text">Create an account to unlock more features like link history and QR
+                codes.</p>
+            <a href="/register" class="btn btn-outline-dark px-4 rounded-pill">Get Started</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="d-flex justify-content-center text-center mt-5 flex-wrap gap-5">
+        <div class="d-flex flex-column align-items-center" style="max-width: 220px;">
+            <i class="bi bi-clock-history" style="font-size: 50px; color: black;"></i>
+            <h5 class="fw-bold">Fast and Easy</h5>
+            <p class="text-muted">LINKLY is fast and very simple to use for everyone.</p>
+        </div>
+        <div class="d-flex flex-column align-items-center" style="max-width: 220px;">
+            <i class="bi bi-shield-shaded" style="font-size: 50px; color: black;"></i>
+            <h5 class="fw-bold">Secure & Reliable</h5>
+            <p class="text-muted">Your shortened links are always safe and online.</p>
+        </div>
+        <div class="d-flex flex-column align-items-center" style="max-width: 220px;">
+            <i class="bi bi bi-cloud-check-fill" style="font-size: 50px; color: black;"></i>
+            <h5 class="fw-bold">Always Available</h5>
+            <p class="text-muted">Your links stay live and accessible whenever you need them.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Short URL copied to clipboard!");
+      });
+    }
+</script>
+
+{% endblock %}
